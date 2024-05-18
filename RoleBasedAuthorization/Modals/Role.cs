@@ -4,24 +4,19 @@ using System.Text.Json.Serialization;
 
 namespace RoleBasedAuthorization.Modals
 {
-    public class User
+    public class Role
     {
+        [Key]
         [Required]
-        public int UserId { get; set; }
+        public int RoleId { get; set; }
 
         [Required]
-        public string UserName { get; set; }
+        public string RoleName { get; set; }
 
         [Required]
-        public string UserEmail { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
+        public string RoleDescription { get; set; }
 
         [JsonIgnore]
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-
-
     }
 }

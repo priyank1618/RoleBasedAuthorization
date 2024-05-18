@@ -1,4 +1,7 @@
-﻿namespace RoleBasedAuthorization.Modals
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace RoleBasedAuthorization.Modals
 {
     public class UserRole
     {
@@ -10,8 +13,10 @@
 
         public int UserId { get; set; }
 
-        public Roles Role { get; set; }
 
+        [JsonIgnore]
+        public Role Role { get; set; }
+        [JsonIgnore]
         public User User { get; set; }
     }
 }
